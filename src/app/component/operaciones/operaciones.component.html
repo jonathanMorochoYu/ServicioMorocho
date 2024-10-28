@@ -1,0 +1,33 @@
+<h2>Agregar Servicio</h2>
+
+<div class="formulario-contenedor">
+    <form (ngSubmit)="agregarOperaciones()">
+      <fieldset>
+        <label for="nombre-Servicio">Nombre del Servicio:</label>
+        <input type="text" [(ngModel)]="nombreServicio" name="nombreServicio" required>
+        <br>
+        <label for="descripcion-servicio">Descripción del Servicio:</label>
+        <input type="text" [(ngModel)]="descripcionServicio" name="descripcionServicio" required>
+        <br>
+      </fieldset>
+      <button type="submit">Agregar SERVICIO</button>
+    </form>
+  </div>
+
+  <div class="contenedor-servicio">
+    <h2>Lista de servicio</h2>
+    <ul id="lista-servicios">
+      <li *ngFor="let registro of registros">
+        <div class="informacion-servicio">
+          <h2>{{ registros.Nombre }}</h2>
+          <h2>{{ registros.Descripción }}</h2>
+        </div>
+        <div>
+          <p><strong>Descripción:</strong> {{ registro.descripcionOperacion }}</p>
+          <button (click)="toggleDetalles(registro)">Ver más</button>
+          <button (click)="eliminarRegistro(registro.id)">Eliminar</button>
+        </div>
+      </li>
+    </ul>
+
+</div>
